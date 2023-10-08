@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum Beats</title>
+    <!-- <link rel="stylesheet" href="style.css">-->
+
+
+    <style>
+        
+        /* Making a clock using javascript and css  */
+        *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+  width: 100wh;
+  height: 100vh;
+  overflow: hidden;
+
+}
+.title {
+font-size: 3.5rem;
+color: #ffffff; /* Text color */
+text-transform: uppercase;
+letter-spacing: 8px;
+margin-bottom: 4rem;
+font-family: 'Montserrat', sans-serif;
+animation: animateTitle 1s ease-in-out forwards;
+}
+
+@keyframes animateTitle {
+0% {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+100% {
+  opacity: 1;
+  transform: translateY(0px);
+}
+}
+.screen{
+  position: absolute;
+  top: -1%;
+  left: -1%;
+  width: 110%;
+  height: 110%;
+  /* background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(50%) blur(2px); */
+  background: linear-gradient( 135deg, #fac403 10%, #F55555 100% );
+  z-index: -1;
+
+
+
+}
+.screen-content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+
+
+}
+
+.keys{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 50%;
+animation: animateTitle 1s ease-in-out forwards;
+
+
+
+}
+
+.keys div{
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+align-items: center;
+flex-wrap: wrap;
+width: 100%;
+margin-bottom: 1.5rem;
+
+}
+/* Styling for the drum key container */
+.drum-key {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: #201b1bd0;
+  border: none;
+  outline: none;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styling for the alphabet inside the drum key */
+.drum-key .alphabet {
+  font-size: 30px;
+  font-weight: 400;
+
+}
+
+/* Styling for the sound name inside the drum key */
+.drum-key .sound {
+  font-size: 14px;
+  color: yellow;
+}
+
+/* Styling for the drum key when clicked */
+/* .drum-key:active {
+  transform: scale(1.1);
+  background: black;
+  outline: 2px solid rgba(255, 255, 0, 0.772);
+  box-shadow: 0px 0px 10px 0px rgba(255, 255, 0, 0.772);
+  border: 0px solid white;
+  touch-action: manipulation;
+  user-select: none;
+} */
+
+.playing{
+  transform: scale(1.1);
+  background: black;
+  outline: 2px solid rgba(255, 255, 0, 0.772);
+  box-shadow: 0px 0px 10px 0px rgba(255, 255, 0, 0.772);
+  border: 0px solid white;
+}
+
+.drum-key:hover{
+    transform: scale(1.1);
+    border: 0.1px solid white;
+}
+
+
+/* Default styles for all devices */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+width: 100wh;
+height: 100vh;
+overflow: hidden;
+}
+
+.title {
+font-size: 3.5rem;
+color: #ffffff;
+text-transform: uppercase;
+letter-spacing: 8px;
+margin-bottom: 4rem;
+font-family: 'Montserrat', sans-serif;
+animation: animateTitle 1s ease-in-out forwards;
+}
+
+/* Other CSS styles here */
+
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+.screen {
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.keys {
+  width: 80%;
+}
+
+.drum-key {
+  width: 80px;
+  height: 80px;
+  font-size: 20px;
+}
+
+.drum-key .sound {
+  font-size: 12px;
+}
+
+}
+
+.sidebar {
+     width: 20%;
+     height: 100%;
+     background-color: #292828c8;
+     position: fixed;
+     left: 0;
+     top: 0;
+     z-index: 100;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ }
+ .sidebar a {
+     margin: 10px;
+     padding: 10px;
+     color: #fff;
+     text-decoration: none;
+     font-size: 20px;
+     font-weight: 500;
+     text-align: center;
+     border-radius: 10px;
+     transition: all 0.3s ease-in-out;
+ }
+ .sidebar a:hover {
+     background-color: #fff;
+     color: #292828c8;
+ }
+    
+    </style>
+</head>
+<body>
+    
+    <div class="screen">
+
+    </div>
+    <div class="sidebar">
+      <a href="/">Home</a>
+      <a href="/weather/index.html">Weather</a>
+      <a href="/drum-kit/index.html">Drum Kit</a>
+      <a href="/analog-clock/index.html">Clock</a>
+      <a href="/git-profile/index.html">Github Profile</a>
+  </div>
+    <div class="screen-content">
+        <div >
+            <h1 class="title">Drum Kit</h1>
+        </div>
+        <div class="keys">
+
+            <div>
+
+                <!-- A key -->
+                <button class="drum-key" id="keyA" data-key="65">
+                    <span class="alphabet">A</span>
+                    <span class="sound">Clap</span>
+                </button>
+                
+                <!-- S key -->
+                <button class="drum-key" id="keyS" data-key="83">
+                    <span class="alphabet">S</span>
+                    <span class="sound">Hi-Hat</span>
+                </button>
+                
+                <!-- D key -->
+                <button class="drum-key" id="keyD" data-key="68">
+                    <span class="alphabet">D</span>
+                    <span class="sound">Kick</span>
+                </button>
+            
+            </div>  
+
+
+            <div>
+                <!-- F key -->
+                <button class="drum-key" id="keyF" data-key="70">
+                    <span class="alphabet">F</span>
+                    <span class="sound">Openhat</span>
+                </button>
+                
+                <!-- G key -->
+                <button class="drum-key" id="keyG" data-key="71">
+                    <span class="alphabet">G</span>
+                    <span class="sound">Boom</span>
+                </button>
+                
+                <!-- H key -->
+                <button class="drum-key" id="keyH" data-key="72">
+                    <span class="alphabet">H</span>
+                    <span class="sound">Ride</span>
+                </button>
+            </div>
+            <div>
+                <!-- J key -->
+                <button class="drum-key" id="keyJ" data-key="74">
+                    <span class="alphabet">J</span>
+                    <span class="sound">Snare</span>
+                </button>
+                
+                <!-- K key -->
+                <button class="drum-key" id="keyK" data-key="75">
+                    <span class="alphabet">K</span>
+                    <span class="sound">Tom</span>
+                </button>
+                
+                <!-- L key -->
+                <button class="drum-key" id="keyL" data-key="76">
+                    <span class="alphabet">L</span>
+                    <span class="sound">Tink</span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+  <audio data-key="65" src="sounds/clap.wav"></audio>
+  <audio data-key="83" src="sounds/hihat.wav"></audio>
+  <audio data-key="68" src="sounds/kick.wav"></audio>
+  <audio data-key="70" src="sounds/openhat.wav"></audio>
+  <audio data-key="71" src="sounds/boom.wav"></audio>
+  <audio data-key="72" src="sounds/ride.wav"></audio>
+  <audio data-key="74" src="sounds/snare.wav"></audio>
+  <audio data-key="75" src="sounds/tom.wav"></audio>
+  <audio data-key="76" src="sounds/tink.wav"></audio>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

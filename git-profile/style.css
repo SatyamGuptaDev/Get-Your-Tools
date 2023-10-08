@@ -1,0 +1,287 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+    min-height: 100vh;
+    width: 100vw;
+    background: #161616;
+}
+.navbar{
+    position: fixed;
+    background-color: #212020;
+    box-shadow: 10 10 2 rgb(0, 0, 0);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    padding: 10px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+.search{
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translate(-50%,-5px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 320px;
+    height: 50px;
+    border-radius: 2px;
+    padding: 10px;
+}
+.search input[type="text"]{
+    height: 100%;
+    border: rgba(255, 255, 255, 0.484) 1px solid;
+    outline: none;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 2px; 
+    background-color: #060505;
+    color: white;
+    transition: 0.2s;
+}
+#un:focus{
+    background-color: #060505;
+    color: white;
+    border: none;
+    border: 1px rgb(255, 255, 255) solid;
+}
+.search button{
+    height: 100%;
+    border: none;
+    outline: 1px rgba(255, 255, 255, 0.553) solid;
+    background: #060505;
+    color: #ffffffd3;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+.user{
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    /* animation: show 0.5s ease-in-out forwards; */
+}
+@keyframes show {
+    0%{
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100%{
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    
+}
+@keyframes hide {
+    0%{
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    100%{
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    
+}
+.profile{
+    background-color: #161616;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 400px;
+    height: 500px;
+    border-radius: 2px;
+    padding: 10px 30px;
+    text-align: left;
+}
+.profile-child{
+  margin-top: 20px;
+}
+.profile img{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+}
+.profile .names{
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    width: 100%;
+    color: white;
+}
+.profile .names .name{
+    font-size: 27px;
+    color: white;
+}
+.profile .names .user-name{
+    font-size: 25px;
+    color: rgba(255, 255, 255, 0.742);
+    font-weight: 300;
+
+}
+.profile .follow{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    color: white;
+    padding-left: 10px;
+    font-size: 20px;
+}
+.profile>.follow>h3{
+    font-size: 20px;
+    font-weight: 600;
+}
+.profile>.follow>span{
+    font-weight: 300;
+    margin-right: 40px;
+    margin-left: 5px;
+    font-size: 20px;
+}
+.bio{
+    min-width: 500px;
+    color: rgba(255, 255, 255, 0.879);
+    font-size: 18px;
+    font-weight: 500;
+    /* display: none; */
+}
+
+.details{
+    /* margin-left: 10px; */
+    height: 400px;
+    min-width: 500px;
+    background-color: #161616;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    border-radius: 2px;
+    padding: 10px 30px;
+    text-align: left;
+
+}
+.details-child{
+
+  margin-bottom: 30px;
+
+}
+
+.details div{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    color: white;
+    padding-left: 10px;
+    font-size: 20px;
+}
+i{
+    font-size: 25px;
+    margin-right: 10px;
+    color: rgba(255, 255, 255, 0.379);
+}
+.details .date{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+.details .date div{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+}
+.details h3{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.82);
+}
+.details span{
+    margin-right: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 200;
+}
+a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.822);
+    transition: 0.1s;
+}
+a:hover{
+    color: rgb(255, 255, 255);
+    font-size: 19px;
+    font-weight: 400;
+    border-bottom: 1px white solid;
+}
+#btn:hover{
+    background-color: #161616;
+    outline: white 1px solid;
+}
+
+
+
+/* Base styles */
+
+/* Add all your existing CSS code here */
+
+/* Media Queries */
+
+/* Small devices (e.g. phones) */
+@media only screen and (max-width: 600px) {
+  .profile {
+    min-width: 300px;
+  }
+  .profile img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* 
+Large devices (e.g. desktops) */
+/* @media only screen and (min-width: 1025px) {
+  .search {
+    width: 50%;
+  }
+  .profile {
+    width: 40%;
+  }
+} */
